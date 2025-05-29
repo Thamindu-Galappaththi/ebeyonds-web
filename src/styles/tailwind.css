@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #cc9601;
+    --primary-foreground: #ffffff;
+    --primary-light: #ffdd57;
+    --primary-dark: #b18f0a;
+
+    /* Secondary Colors */
+    --secondary-background: #1d1d1d;
+    --secondary-foreground: #ffffff;
+    --secondary-light: #3c3c3c;
+    --secondary-dark: #0f0f0f;
+
+    /* Accent Colors */
+    --accent-color: #b7b7b7;
+    --accent-foreground: #ffffff;
+    --accent-light: #eaeaea;
+    --accent-dark: #a3a3a3;
+
+    /* Border Colors */
+    --border-primary: #ffffff;
+    --border-secondary: #3c3c3c;
+    --border-light: #e0e0e0;
+    --border-dark: #666666;
+  }
+}
+
+@layer utilities {
+  /* Background Color Utilities */
+  .bg-primary-gold {
+    background-color: var(--primary-background);
+  }
+
+  .bg-primary-light {
+    background-color: var(--primary-light);
+  }
+
+  .bg-primary-dark {
+    background-color: var(--primary-dark);
+  }
+
+  .bg-secondary-dark {
+    background-color: var(--secondary-background);
+  }
+
+  .bg-secondary-light {
+    background-color: var(--secondary-light);
+  }
+
+  .bg-secondary-darker {
+    background-color: var(--secondary-dark);
+  }
+
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+
+  .bg-accent-light {
+    background-color: var(--accent-light);
+  }
+
+  .bg-accent-dark {
+    background-color: var(--accent-dark);
+  }
+
+  /* Text Color Utilities */
+  .text-primary-white {
+    color: var(--primary-foreground);
+  }
+
+  .text-secondary-white {
+    color: var(--secondary-foreground);
+  }
+
+  .text-accent-gray {
+    color: var(--accent-color);
+  }
+
+  .text-accent-light {
+    color: var(--accent-light);
+  }
+
+  .text-accent-dark {
+    color: var(--accent-dark);
+  }
+
+  /* Border Color Utilities */
+  .border-primary {
+    border-color: var(--border-primary);
+  }
+
+  .border-secondary {
+    border-color: var(--border-secondary);
+  }
+
+  .border-light {
+    border-color: var(--border-light);
+  }
+
+  .border-dark {
+    border-color: var(--border-dark);
+  }
+
+  /* Font Family Utilities */
+  .font-din-alternate {
+    font-family: 'DIN Alternate', sans-serif;
+  }
+
+  .font-open-sans {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
