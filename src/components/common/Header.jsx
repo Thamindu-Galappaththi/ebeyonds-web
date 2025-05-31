@@ -8,99 +8,61 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#0f0f0f] h-[78px] w-full relative">
-      <div className="flex items-center justify-between h-full px-[115px]">
+    <header className="bg-[#0f0f0f] w-full shadow-md relative z-50">
+      <div className="flex items-center justify-between h-[78px] px-6 md:px-10 lg:px-28">
         {/* Logo */}
-        <div className="flex items-center">
+        <div>
           <img
             src="/images/img_logo.svg"
-            alt="Logoipsum"
-            className="w-[191px] h-[46px]"
+            alt="Logo"
+            className="h-[46px] w-auto"
           />
         </div>
 
-        {/* Navigation Menu */}
-        <nav className="hidden lg:flex items-center space-x-8">
-          <a
-            href="#"
-            className="text-white text-[16px] font-medium leading-[20px] underline hover:text-gray-300 transition-colors"
-          >
-            HOME
-          </a>
-          <a
-            href="#"
-            className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-          >
-            OUR SCREENS
-          </a>
-          <a
-            href="#"
-            className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-          >
-            SCHEDULE
-          </a>
-          <a
-            href="#"
-            className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-          >
-            MOVIE LIBRARY
-          </a>
-          <a
-            href="#"
-            className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-          >
-            LOCATION & CONTACT
-          </a>
+        {/* Desktop Menu */}
+        <nav className="hidden lg:flex items-center space-x-6">
+          {['HOME', 'OUR SCREENS', 'SCHEDULE', 'MOVIE LIBRARY', 'LOCATION & CONTACT'].map((label, idx) => (
+            <a
+              key={idx}
+              href="#"
+              className={`text-white text-[15px] font-medium transition-colors hover:text-gray-300 ${
+                label === 'HOME' ? 'underline' : ''
+              }`}
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
           className="lg:hidden"
-          aria-label="Toggle mobile menu"
+          aria-label="Toggle menu"
         >
           <img
             src="/images/img_burger_menu.svg"
             alt="Menu"
-            className="w-[34px] h-[20px]"
+            className="w-[30px] h-[20px]"
           />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-[#0f0f0f] border-t border-gray-700 z-50">
-          <nav className="flex flex-col space-y-4 p-4">
-            <a
-              href="#"
-              className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-            >
-              HOME
-            </a>
-            <a
-              href="#"
-              className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-            >
-              OUR SCREENS
-            </a>
-            <a
-              href="#"
-              className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-            >
-              SCHEDULE
-            </a>
-            <a
-              href="#"
-              className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-            >
-              MOVIE LIBRARY
-            </a>
-            <a
-              href="#"
-              className="text-white text-[16px] font-medium leading-[20px] hover:text-gray-300 transition-colors"
-            >
-              LOCATION & CONTACT
-            </a>
+        <div className="lg:hidden absolute top-full left-0 w-full bg-[#0f0f0f] border-t border-gray-700">
+          <nav className="flex flex-col p-4 space-y-4">
+            {['HOME', 'OUR SCREENS', 'SCHEDULE', 'MOVIE LIBRARY', 'LOCATION & CONTACT'].map((label, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className={`text-white text-[15px] font-medium transition-colors hover:text-gray-300 ${
+                  label === 'HOME' ? 'underline' : ''
+                }`}
+              >
+                {label}
+              </a>
+            ))}
           </nav>
         </div>
       )}
