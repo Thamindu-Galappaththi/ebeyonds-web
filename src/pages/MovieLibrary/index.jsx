@@ -60,7 +60,6 @@ const MovieLibrary = () => {
       return;
     }
     alert('Form submitted successfully!');
-    // Reset form
     setFormData({
       firstName: '',
       lastName: '',
@@ -79,67 +78,68 @@ const MovieLibrary = () => {
     <div className="min-h-screen bg-black">
       <Header />
       <HeroSection />
-      
+
       {/* Movie Collection Section */}
-      <section className="bg-[#1d1d1d] py-[56px] px-[114px]">
-        <div className="flex justify-between items-center mb-[82px]">
-          <h2 className="text-white text-[36px] font-bold leading-[35px] font-din-alternate">
+      <section className="bg-[#1d1d1d] py-14 px-4 sm:px-8 md:px-16 lg:px-[114px]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-20">
+          <h2 className="text-white text-[28px] sm:text-[32px] md:text-[36px] font-bold leading-tight font-din-alternate mb-6 sm:mb-0">
             Collect your favourites
           </h2>
-          
+
           {/* Search Bar */}
-          <div className="relative">
-            <div className="flex items-center bg-transparent border border-white rounded-[4px] px-4 py-3 w-[424px]">
+          <div className="w-full sm:w-[424px]">
+            <div className="flex items-center bg-transparent border border-white rounded-[4px] px-4 py-3 w-full">
               <img
                 src="/images/img_vector.svg"
                 alt="Search"
-                className="w-[20px] h-[20px] mr-3"
+                className="w-5 h-5 mr-3"
               />
               <input
                 type="text"
                 placeholder="Search title and add to grid"
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className="bg-transparent text-[#a3a3a3] text-[18px] font-normal leading-[25px] font-open-sans flex-1 outline-none"
+                className="bg-transparent text-[#a3a3a3] text-[16px] sm:text-[18px] font-normal leading-6 font-open-sans flex-1 outline-none"
               />
             </div>
           </div>
         </div>
 
         {/* Divider Line */}
-        <div className="w-[1332px] h-[2px] bg-white mb-[61px]"></div>
+        <div className="w-full max-w-[1332px] h-[2px] bg-white mb-16 mx-auto"></div>
 
         {/* Movies Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[25px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-[25px] justify-center max-w-[1332px] mx-auto">
           {filteredMovies.map((movie) => (
-            <div key={movie.id} className="relative">
+            <div key={movie.id} className="relative max-w-[427px] mx-auto">
               {/* Movie Image */}
               <div className="relative">
                 <img
                   src={movie.image}
                   alt={movie.title}
-                  className="w-[427px] h-[606px] object-cover rounded-lg"
+                  className="w-full h-auto max-h-[606px] object-cover rounded-lg"
                 />
-                
+
                 {/* Remove Button */}
                 <button
                   onClick={() => handleRemoveMovie(movie.id)}
-                  className="absolute top-3 right-3 w-[57px] h-[57px] bg-[#1d1d1d] bg-opacity-90 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all"
+                  aria-label={`Remove ${movie.title}`}
+                  className="absolute top-3 right-3 w-[45px] h-[45px] bg-[#1d1d1d] bg-opacity-90 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all"
                 >
                   <img
                     src="/images/img_group_2.svg"
                     alt="Remove"
-                    className="w-[12px] h-[12px]"
+                    className="w-3 h-3 sm:w-[12px] sm:h-[12px]"
                   />
                 </button>
               </div>
-              
+
               {/* Movie Info */}
-              <div className="bg-[#3c3c3c] p-6 rounded-b-lg">
-                <h3 className="text-white text-[32px] font-normal leading-[32px] font-din-alternate mb-4">
+              <div className="bg-[#3c3c3c] p-4 sm:p-6 rounded-b-lg">
+                <h3 className="text-white text-[22px] sm:text-[28px] md:text-[32px] font-normal leading-tight font-din-alternate mb-3 sm:mb-4">
                   {movie.title}
                 </h3>
-                <p className="text-[#eaeaea] text-[18px] font-medium leading-[27px] font-inter whitespace-pre-line">
+                <p className="text-[#eaeaea] text-[14px] sm:text-[16px] md:text-[18px] font-medium leading-relaxed font-inter whitespace-pre-line">
                   {movie.description}
                 </p>
               </div>
@@ -149,7 +149,7 @@ const MovieLibrary = () => {
 
         {filteredMovies.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-[#b7b7b7] text-[20px] font-normal">
+            <p className="text-[#b7b7b7] text-[18px] font-normal">
               No movies found matching your search.
             </p>
           </div>
@@ -157,33 +157,33 @@ const MovieLibrary = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-black py-[103px] px-[109px]">
-        <h2 className="text-white text-[36px] font-bold leading-[35px] font-din-alternate mb-[17px]">
+      <section className="bg-black py-20 px-4 sm:px-8 md:px-16 lg:px-[109px]">
+        <h2 className="text-white text-[28px] sm:text-[32px] md:text-[36px] font-bold leading-tight font-din-alternate mb-4 sm:mb-6">
           How to reach us
         </h2>
-        <p className="text-[#b7b7b7] text-[20px] font-normal leading-[29px] font-open-sans mb-[97px]">
+        <p className="text-[#b7b7b7] text-[16px] sm:text-[18px] font-normal leading-7 font-open-sans mb-12 sm:mb-24 max-w-3xl">
           Lorem ipsum dolor sit amet, consetetur.
         </p>
 
-        <div className="flex gap-[76px]">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-[76px]">
           {/* Contact Form */}
           <div className="flex-1">
-            <form onSubmit={handleSubmit} className="space-y-[31px]">
+            <form onSubmit={handleSubmit} className="space-y-8 max-w-lg mx-auto lg:mx-0">
               {/* First Row - First Name and Last Name */}
-              <div className="grid grid-cols-2 gap-[29px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <InputField
                   label="First Name *"
                   value={formData.firstName}
                   onChange={handleFormChange('firstName')}
                   required
-                  className="h-[46px] w-[226px]"
+                  className="h-[46px] w-full"
                 />
                 <InputField
                   label="Last Name *"
                   value={formData.lastName}
                   onChange={handleFormChange('lastName')}
                   required
-                  className="h-[46px] w-[226px]"
+                  className="h-[46px] w-full"
                 />
               </div>
 
@@ -194,7 +194,7 @@ const MovieLibrary = () => {
                 value={formData.email}
                 onChange={handleFormChange('email')}
                 required
-                className="h-[46px] w-[481px]"
+                className="h-[46px] w-full"
               />
 
               {/* Telephone */}
@@ -203,7 +203,7 @@ const MovieLibrary = () => {
                 type="tel"
                 value={formData.telephone}
                 onChange={handleFormChange('telephone')}
-                className="h-[46px] w-[481px]"
+                className="h-[46px] w-full"
               />
 
               {/* Message */}
@@ -212,21 +212,21 @@ const MovieLibrary = () => {
                 value={formData.message}
                 onChange={handleFormChange('message')}
                 rows={5}
-                className="w-[481px] h-[115px]"
+                className="w-full h-[115px]"
               />
 
               {/* Required Fields Note */}
-              <p className="text-[#b7b7b7] text-[18px] font-normal leading-[25px] font-open-sans">
+              <p className="text-[#b7b7b7] text-[16px] font-normal leading-[25px] font-open-sans">
                 *required fields
               </p>
 
               {/* Terms and Conditions */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3">
                 <Checkbox
                   checked={agreeToTerms}
                   onChange={(e) => setAgreeToTerms(e.target.checked)}
                 />
-                <span className="text-[#b7b7b7] text-[20px] font-normal leading-[25px] font-open-sans">
+                <span className="text-[#b7b7b7] text-[16px] font-normal leading-[25px] font-open-sans">
                   I agree to the{' '}
                   <span className="text-white">Terms & Conditions</span>
                 </span>
@@ -236,7 +236,7 @@ const MovieLibrary = () => {
               <Button
                 type="submit"
                 variant="primary"
-                className="w-[242px] h-[49px] rounded-[5px] text-[16px] font-medium leading-[20px] font-inter"
+                className="w-full sm:w-[242px] h-[49px] rounded-[5px] text-[16px] font-medium leading-[20px] font-inter"
               >
                 SUBMIT
               </Button>
@@ -244,11 +244,11 @@ const MovieLibrary = () => {
           </div>
 
           {/* Map */}
-          <div className="w-[588px] h-[588px]">
+          <div className="w-full max-w-[588px] h-[300px] sm:h-[400px] lg:h-[588px] mx-auto lg:mx-0 rounded-lg overflow-hidden">
             <img
               src="/images/img_image_1.png"
               alt="Location Map - Madrid, Spain"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
