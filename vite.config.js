@@ -6,6 +6,7 @@ import tagger from "@dhiwise/component-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/ebeyonds-web/', 
   plugins: [react(),tagger()],
   build: {
     outDir: "build",
